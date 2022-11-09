@@ -9,8 +9,8 @@ def index(request):
 def staff(request):
     return render(request, 'dashboard/staff.html')
 
-def products(request):
-    return render(request, 'dashboard/products.html')
+def crash(request):
+    return render(request, 'dashboard/crash.html')
 
 def order(request):
     return render(request, 'dashboard/orders.html')
