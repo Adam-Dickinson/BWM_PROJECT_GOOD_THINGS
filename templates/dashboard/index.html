@@ -12,10 +12,10 @@
                         var myChart1 = new Chart(ctx, {
                             type: 'pie',
                             data: {
-                                labels: [{% for CarCrashRandom in CarCrashRandom %} '{{CarCrashRandom.CrashType}}' , {% endfor %}],
+                                labels: [{% for carcrashradom in CarCrashRandom %} '{{CarCrashRandom.CrashType}}' , {% endfor %}],
                         datasets: [{
                             label: 'Crash',
-                            data: [{% for CarCrashRandom in CarCrashRandom %} {{CarCrashRandom.Speed}}, {% endfor %}],
+                            data: [{% for carcrashrandom in CarCrashRandom %} {{CarCrashRandom.Speed}}, {% endfor %}],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 1)',
                                 'rgba(54, 162, 235, 1)',

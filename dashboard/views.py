@@ -6,13 +6,24 @@ from .forms import CrashForm
 # Create your views here.
 
 def index(request):
-    carcrashrandom = CarCrashRandom.objects.all()
+    # carcrashrandom = CarCrashRandom.objects.all()
 
-    context = {
-        'crash': carcrashrandom
-    }
+    # context = {
+    #     'crash': carcrashrandom
+    # }
 
-    return render(request, 'dashboard/index.html')
+    labels = []
+    data = []
+
+    queryset = CarCrashRandom.objects.order_by('TypeOfCar')[:5]
+    for carcrashrandom in queryset:
+        labels.append(carcrashrandom.TypeOfCar)
+        data.append(carcrashrandom.Speed)
+
+    return render(request, 'dashboard/index.html',{
+        'labels' : labels,
+        'data' : data,
+    })
 
 def staff(request):
     return render(request, 'dashboard/staff.html')
