@@ -1,37 +1,22 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from .models import CarCrashRandom
 from .forms import CrashForm
 
 # Create your views here.
-
+#Admin Views
+@login_required
 def index(request):
-    # carcrashrandom = CarCrashRandom.objects.all()
+    return render(request, 'dashboard/index.html')
 
-    # context = {
-    #     'crash': carcrashrandom
-    # }
-
-    labels = []
-    data = []
-
-    queryset = CarCrashRandom.objects.order_by('TypeOfCar')[:5]
-    for carcrashrandom in queryset:
-        labels.append(carcrashrandom.TypeOfCar)
-        data.append(carcrashrandom.Speed)
-
-    return render(request, 'dashboard/index.html',{
-        'labels' : labels,
-        'data' : data,
-    })
-
+@login_required
 def staff(request):
     return render(request, 'dashboard/staff.html')
 
+@login_required
 def crash(request):
     items = CarCrashRandom.objects.all()
-
-    #items = CarCrashRandom.objects.raw('SELECT * FROM dashboard_carcrashrandom')
 
     if request.method == 'POST':
         form = CrashForm(request.POST)
@@ -46,5 +31,6 @@ def crash(request):
     }
     return render(request, 'dashboard/crash.html', context)
 
+@login_required
 def order(request):
     return render(request, 'dashboard/orders.html')

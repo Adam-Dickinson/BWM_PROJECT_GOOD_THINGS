@@ -2,6 +2,8 @@
 {% block title %} Home Page {% endblock %}
 
 {% block content %}
+{% if user.is_authenticated and user.is_staff and user.is_superuser and user.is_active %}
+{% include "partials/topnav.html" %}
     <div class="row ">
         <div class="col-md-6 my-4">
             <div class="bg-white">
@@ -12,10 +14,10 @@
                         var myChart1 = new Chart(ctx, {
                             type: 'pie',
                             data: {
-                                labels: [{% for carcrashradom in CarCrashRandom %} '{{CarCrashRandom.CrashType}}' , {% endfor %}],
+                                labels: [],
                         datasets: [{
                             label: 'Crash',
-                            data: [{% for carcrashrandom in CarCrashRandom %} {{CarCrashRandom.Speed}}, {% endfor %}],
+                            data: [],
                             backgroundColor: [
                                 'rgba(255, 99, 132, 1)',
                                 'rgba(54, 162, 235, 1)',
@@ -96,4 +98,7 @@
             </div>
         </div>
     </div>
+{% else %}
+{% include "dashboard/index-user.html" %}
+{% endif %}
 {% endblock %}

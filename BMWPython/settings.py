@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dashboard.apps.DashboardConfig',
-    'crispy_forms'
+    'user.apps.UserConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -68,8 +69,6 @@ TEMPLATES = [
         },
     },
 ]
-
-CRISPY_TEMPLATE_PACK = 'uni_form'
 
 WSGI_APPLICATION = 'BMWPython.wsgi.application'
 
@@ -103,6 +102,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
@@ -126,6 +126,10 @@ STATTICFILES_DIRS = [
 ]
 
 STATIC_ROOT = (BASE_DIR/"asert/")
+
+LOGIN_REDIRECT_URL = 'dashboard-index'
+
+LOGIN_URL = 'user-login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
