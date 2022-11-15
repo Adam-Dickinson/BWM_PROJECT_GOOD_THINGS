@@ -1,0 +1,34 @@
+{% extends "partials/base.html" %}
+{% block title %} Crash Sim Page {% endblock %}
+
+{% block content %}
+
+{% include "partials/topnav.html" %}
+
+
+<div class="container">
+    <div class="row my-4">
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-8">
+            <table class="table bg-white">
+                <thead class="bg-info">
+                </thead>
+                <tbody>
+                    <a class="btn btn-info btn-sm" href="{% url 'dashboard-data-name'%}">Names</a>
+                    <hr>
+                    <a class="btn btn-info btn-sm" href="{% url 'dashboard-data-surname'%}">Surnames</a>
+                    <hr>
+                    <a class="btn btn-info btn-sm" href="{% url 'dashboard-data-car'%}">Cars</a>
+                    <hr>
+                    <a class="btn btn-info btn-sm" href="{% url 'dashboard-data-crashtype'%}">Crash Types</a>
+                    <hr>
+                    <a class="btn btn-info btn-sm" href="{% url 'dashboard-data-damage'%}">Damage</a>
+                    <hr>
+                    <a class="btn btn-info btn-sm" href="{% url 'dashboard-data-sight'%}">Driver Sight</a>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

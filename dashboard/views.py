@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
-from .models import CarCrashRandom
-from .forms import CrashForm
+from .models import CarCrashRandom, FirstName, LastName, TypeOfCrash, TypeOfCar, Damage, DriverSight
+from .forms import CrashForm, CarForm, NameForm, SurnameForm, SightForm, DamageForm, TypeCrashForm
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -69,6 +69,54 @@ def Crash_Update(request, pk):
 
 
 @login_required
-def order(request):
-    return render(request, 'dashboard/orders.html')
+def crash_data(request):
+    return render(request, 'dashboard/crash_sim_data.html')
+
+@login_required
+def name_data(request):
+    items = FirstName.objects.all()
+    context = {
+        'items' : items,
+    }
+    return render(request, 'dashboard/name.html',context)
+
+@login_required
+def surname_data(request):
+    items = LastName.objects.all()
+    context = {
+        'items' : items,
+    }
+    return render(request, 'dashboard/surname.html',context)
+
+@login_required
+def car_data(request):
+    items = TypeOfCar.objects.all()
+    context = {
+        'items' : items,
+    }
+    return render(request, 'dashboard/car.html',context)
+
+@login_required
+def crashtype_data(request):
+    items = TypeOfCrash.objects.all()
+    context = {
+        'items' : items,
+    }
+    return render(request, 'dashboard/crashtype.html',context)
+
+@login_required
+def damage_data(request):
+    items = Damage.objects.all()
+    context = {
+        'items' : items,
+    }
+    return render(request, 'dashboard/damage.html',context)
+
+@login_required
+def sight_data(request):
+    items = DriverSight.objects.all()
+    context = {
+        'items' : items,
+    }
+    return render(request, 'dashboard/sight.html',context)
 
