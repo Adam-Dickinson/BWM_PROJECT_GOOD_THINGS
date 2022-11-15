@@ -9,7 +9,11 @@ from django.contrib.auth.models import User
 #Admin Views
 @login_required
 def index(request):
-    return render(request, 'dashboard/index.html')
+    items = CarCrashRandom.objects.all()
+    context = {
+        'items' : items,
+    }
+    return render(request, 'dashboard/index.html', context)
 
 @login_required
 def staff(request):
