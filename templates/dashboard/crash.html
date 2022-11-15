@@ -1,5 +1,5 @@
 {% extends "partials/base.html" %}
-{% block title %} Products Page {% endblock %}
+{% block title %} Crash Page {% endblock %}
 {% load crispy_forms_tags %}
 
 {% block content %}
@@ -15,7 +15,7 @@
                 <hr>
                 <form method="POST">
                     {% csrf_token %}
-                    {{ form|crispy }}
+                    {{ form|crispy }} 
                     <input class="btn btn-success btn-block" type="submit" value="Simulate Crash">
                 </form>
             </div>
@@ -47,8 +47,8 @@
                         <td>{{item.FlexSensorReading}}</td>
                         <td>{{item.Speed}}</td>
                         <td>
-                            <a class="btn btn-info btn-sm" href="">Edit</a>
-                            <a class="btn btn-danger btn-sm" href="">Delete</a>
+                            <a class="btn btn-info btn-sm" href="{% url 'dashboard-crash-update' item.id %}">Edit</a>
+                            <a class="btn btn-danger btn-sm" href="{% url 'dashboard-crash-delete' item.id %}">Delete</a>
                         </td>
                     {% endfor %}
                 </tbody>

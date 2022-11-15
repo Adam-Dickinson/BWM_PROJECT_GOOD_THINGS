@@ -1,0 +1,22 @@
+{% extends "partials/base.html" %}
+{% block title %} Delete Crash {% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <div class="border bg-white p-3">
+                    <h3>Update Crash</h3>
+                    <hr>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <input type="submit" value="Confirm" class="btn btn-danger">
+                        <a class='btn btn-secondary'href="{% url 'dashboard-crash' %}">Cancel Update</a>     
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
