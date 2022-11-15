@@ -8,10 +8,10 @@
                     var myChart1 = new Chart(ctx, {
                         type: 'pie',
                         data: {
-                            labels: [],
+                            labels: [{% for item in items %} '{{ item.TypeOfCar.TypeOfCar }}' , {% endfor %}],
                     datasets: [{
-                        label: 'Crash',
-                        data: [],
+                        label: 'Avarage Speed Of Cars',
+                        data: [{% for item in items %} {{item.Speed}} , {% endfor %}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 1)',
                             'rgba(54, 162, 235, 1)',
@@ -54,10 +54,10 @@
                     var myChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: ['BMW', 'Audi'],
+                            labels: [{% for item in items %} '{{ item.DriverSight.DriverSight }}' , {% endfor %}],
                     datasets: [{
-                        label: 'Crash',
-                        data: [20, 60],
+                        label: 'Crash On Area Looking',
+                        data: [{% for item in items %} {{item.Speed}} , {% endfor %}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 1)',
                             'rgba(54, 162, 235, 1)',

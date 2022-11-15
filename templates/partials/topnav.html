@@ -23,7 +23,7 @@
                             <a class="text-decoration-none text-dark" href="{% url 'dashboard-staff' %}">
                                 <div class="card my-card shadow text-center p-3">
                                     <h4>Users <i class="fas fa-users"></i></h4>
-                                    <h3>4</h3>
+                                    <h3>{{ users_count }}</h3>
                                 </div>
                             </a>
                         </div>
@@ -31,7 +31,7 @@
                             <a class="text-decoration-none text-dark" href="{% url 'dashboard-crash' %}">
                                 <div class="card my-card shadow text-center p-3">
                                     <h4>Simulate Crash <i class="fas fa-box"></i></h4>
-                                    <h3>4</h3>
+                                    <h3>{{items_count}}</h3>
                                 </div>
                             </a>
                         </div>

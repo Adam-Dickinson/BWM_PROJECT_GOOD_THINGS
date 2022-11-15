@@ -18,8 +18,10 @@ def index(request):
 @login_required
 def staff(request):
     users = User.objects.all()
+    users_count = users.count()
     context={
         'users' : users,
+        'users_count' : users_count,
     }
     return render(request, 'dashboard/staff.html', context)
 @login_required
@@ -33,6 +35,7 @@ def staff_detail(request, pk):
 @login_required
 def crash(request):
     items = CarCrashRandom.objects.all()
+    items_count = CarCrashRandom.objects.all().count()
 
     if request.method == 'POST':
         form = CrashForm(request.POST)
@@ -44,6 +47,7 @@ def crash(request):
     context={
         'items' : items,
         'form' : form,
+        'items_count' : items_count,
         
     }
     return render(request, 'dashboard/crash.html', context)
