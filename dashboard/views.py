@@ -127,4 +127,3 @@ def sight_data(request):
         'items' : items,
     }
     return render(request, 'dashboard/sight.html',context)
-
