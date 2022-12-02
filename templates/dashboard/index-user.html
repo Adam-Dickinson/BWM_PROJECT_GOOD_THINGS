@@ -6,7 +6,7 @@
                 <script>
                     var ctx = document.getElementById('myChart1').getContext('2d');
                     var myChart1 = new Chart(ctx, {
-                        type: 'pie',
+                        type: 'polarArea',
                         data: {
                             labels: [{% for item in items %} '{{ item.TypeOfCar.TypeOfCar }}' , {% endfor %}],
                     datasets: [{
@@ -54,9 +54,9 @@
                     var myChart = new Chart(ctx, {
                         type: 'bar',
                         data: {
-                            labels: [{% for item in items %} '{{ item.DriverSight.DriverSight }}' , {% endfor %}],
+                            labels: [{% for item in items %} '{{ item.FirstName.FirstName }}' , {% endfor %}],
                     datasets: [{
-                        label: 'Crash On Area Looking',
+                        label: 'Drivers speed at impact',
                         data: [{% for item in items %} {{item.Speed}} , {% endfor %}],
                         backgroundColor: [
                             'rgba(255, 99, 132, 1)',
